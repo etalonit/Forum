@@ -4,7 +4,7 @@
 <% if user_signed_in? %>
 <%= link_to 'Sign out',  destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'New Article', new_article_path %>
-<%= link_to 'Edit registration', edit_user_registration_path %>     
+<%= link_to 'Edit user', edit_user_registration_path %>     
  <% else %>
 <%= link_to 'Login in', user_session_path %>
 <%= link_to 'Sign up', new_user_registration_path %>
