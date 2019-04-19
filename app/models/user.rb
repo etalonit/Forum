@@ -5,5 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :articles
+
+  validates :email, presence: true
+  validates_associated :articles
+  validates :password, length: 5..20
+  validates :email, uniqueness: true 
          
 end
