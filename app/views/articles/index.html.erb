@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Articles Board</h1>
+
+<% @articles.each do |article| %>      
+        <p><h3><%= article.title %></h3></p>
+        <div class= "conteiner "> <%= article.content %></div>
+        <h5>Author: <%= article.user.email %></h5>
+        <% if user_signed_in? %>
+        <p>
+        <%= link_to 'Show', article %>
+        <%= link_to 'Edit', edit_article_path(article) %>
+        <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'New Article', new_article_path %>
+      </p>
+        <% end %>
+    <% end %>
+
