@@ -1,11 +1,24 @@
-<%= link_to 'Home', root_path %>
-<%= link_to 'About', about_path %>
-<%= link_to 'Articles bord', articles_path %>
-<% if user_signed_in? %>
-<%= link_to 'Sign out',  destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'New Article', new_article_path %>
-<%= link_to 'Edit user', edit_user_registration_path %>     
- <% else %>
-<%= link_to 'Login in', user_session_path %>
-<%= link_to 'Sign up', new_user_registration_path %>
-<% end %>
+<nav class="navbar navbar-expand-sm bg-dark">
+  <div class="col-sm-3">
+	<h5 class="my-0 mr-md-auto font-weight-bold text-primary">Forum</h5>
+</div>
+  <div class="col-sm-5 d-flex justify-content-center">
+  <span class="navbar-text">
+  	<span class="btn btn-outline-primary"><%= link_to 'Home', root_path %></span>
+  	<span class="btn btn-outline-primary"><%= link_to 'About', about_path %></span>
+  	<span class="btn btn-outline-primary"><%= link_to 'Articles bord', articles_path %></span>
+  	<% if user_signed_in? %>
+  	<span class="btn btn-outline-primary"><%= link_to 'Logout',  cancel_user_registration_path %></span>
+  	<% else %>
+  	<span class="btn btn-outline-primary"><%= link_to 'Login', new_user_session_path %></span>
+  	<% end %>
+  	<span class="btn btn-outline-primary"><%= link_to 'New Article', new_article_path %></span>
+  </span>
+</div>
+  <div class="col-sm-4 d-flex flex-row-reverse">
+  	<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
+</nav>
