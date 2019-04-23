@@ -8,12 +8,12 @@
   	<span class="btn btn-outline-primary"><%= link_to 'About', about_path %></span>
   	<span class="btn btn-outline-primary"><%= link_to 'Articles bord', articles_path %></span>
   	<% if user_signed_in? %>
-  	<span class="btn btn-outline-primary"><%= link_to 'Logout',  cancel_user_registration_path %></span>
-  	<% else %>
-  	<span class="btn btn-outline-primary"><%= link_to 'Login', new_user_session_path %></span>
-  	<% end %>
-  	<span class="btn btn-outline-primary"><%= link_to 'New Article', new_article_path %></span>
+  	<span class="btn btn-outline-primary"><%= link_to 'Logout',  destroy_user_session_path, method: :delete %></span>
+    <span class="btn btn-outline-primary"><%= link_to 'New Article', new_article_path %></span>
   </span>
+  	<% else %>
+  	<span class="btn btn-outline-primary"><%= link_to 'Login', user_session_path %></span>
+  	<% end %>
 </div>
   <div class="col-sm-4 d-flex flex-row-reverse">
   	<form class="form-inline my-2 my-lg-0">
