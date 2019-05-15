@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>Image:</strong>
+  <%= image_tag @article.image.url(:medium) %>
+</p>
+
+<p>
   <strong>User:</strong>
   <%= @article.user.email %>
 </p>

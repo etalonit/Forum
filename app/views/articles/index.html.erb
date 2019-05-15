@@ -2,7 +2,8 @@
 
 <h1>Articles Board</h1>
 
-<% @articles.each do |article| %>      
+<% @articles.each do |article| %>
+        <p><%= image_tag article.image(:thumb) %></p>
         <p><h3><%= article.title %></h3></p>
         <div class= "conteiner "> <%= article.content %></div>
         <h5>Author: <%= article.user.email %></h5>
