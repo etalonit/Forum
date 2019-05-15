@@ -8,6 +8,8 @@
   	<span class="btn btn-outline-primary"><%= link_to 'Articles bord', articles_path %></span>
   	<% if user_signed_in? %>
   	<span class="btn btn-outline-primary"><%= link_to 'Logout',  destroy_user_session_path, method: :delete %></span>
+    <span class="btn btn-outline-primary"><%= link_to 'Profile', user_path(current_user.id) %></span>
+  </span>
     <span class="btn btn-outline-primary"><%= link_to 'New Article', new_article_path %></span>
   </span>
   <span class="btn btn-outline-primary"><%= link_to 'Edit User', edit_user_registration_path %></span>
