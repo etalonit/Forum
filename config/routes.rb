@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :articles
   devise_for :users
-root 'pages#main'
+  resources :articles 
+  resources :users
+root 'articles#index'
 get 'about', to: 'pages#about'
 
 end
