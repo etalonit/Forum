@@ -1,5 +1,5 @@
 <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-<%= image_tag @user.avatar.url(:thumb) if @user.avatar? %>
+<%= avatar_for(@user) %>
 <p><h5><%= @user.email %></h5></p>
 <p><%= @user.username %></p>
 <p><h5>data narodzhennia:<%= @user.birthday %></h5></p>
