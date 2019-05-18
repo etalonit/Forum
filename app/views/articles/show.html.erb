@@ -20,5 +20,13 @@
   <%= @article.user.email %>
 </p>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
+<p>
+  <strong>Created</strong>
+  <%= time_ago_in_words(@article.created_at) %> ago
+</p>
+
+
+
+<%= render 'comments/comment' %>
+
 <%= link_to 'Back', articles_path %>
