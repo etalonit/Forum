@@ -36,6 +36,27 @@
      </div>
 </p>
 <p>
+<script type="text/javascript">
+ $(document).ready(function(){
+  $("#jquery_jplayer_1").jPlayer({
+   ready: function () {
+    $(this).jPlayer("setMedia", {
+     mp3: "<%= @article.audio.url %>" 
+    });
+   },
+   swfPath: "/js",
+   supplied: "mp3"
+  });
+ });
+</script>
+<div id="jquery_jplayer_1"></div>
+<div id="jp_container_1">
+ <a href="javascript:;" class="jp-play">Play</a>
+ <a href="javascript:;" class="jp-pause">Pause</a>
+ <div class="jp-current-time"></div>
+</div>
+</p>
+<p>
   <strong>Created</strong>
   <%= time_ago_in_words(@article.created_at) %> ago
 </p>
