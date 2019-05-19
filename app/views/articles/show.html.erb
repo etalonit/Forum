@@ -19,7 +19,22 @@
   <strong>User:</strong>
   <%= @article.user.email %>
 </p>
-
+<p>
+<div class="caption" style="text-align:left;">
+            <%= link_to like_article_path(@article), class: "like", method: :put do %>
+            <button type="button" class="btn btn-info" arial-label="Left Align">
+            <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true" ></span> 
+            <span class="badge"><%= @article.get_upvotes.size %></span>
+            </button>
+         <% end %>
+         <%= link_to dislike_article_path(@article), method: :put do %>
+         <button type="button" class="btn btn-info" arial-label="Left Align">
+         <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true" ></span>
+         <span class="badge"><%= @article.get_downvotes.size %></span>
+         </button>
+         <% end %>   
+     </div>
+</p>
 <p>
   <strong>Created</strong>
   <%= time_ago_in_words(@article.created_at) %> ago

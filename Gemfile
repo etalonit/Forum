@@ -42,6 +42,7 @@ gem 'devise'
 gem 'carrierwave'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem "mini_magick"
+gem 'acts_as_votable', '~> 0.12.0'
 
 
 group :development, :test do

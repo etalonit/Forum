@@ -8,8 +8,9 @@
         <div class= "conteiner "> <%= article.content %></div>
         <h5>Author: <%= article.user.email %></h5>
         <p><strong>Created </strong><%= time_ago_in_words(article.created_at) %> ago</p>
-        <p>
-        <%= link_to 'Show', article %>
+        <%= article.get_upvotes.size %><%= image_tag("like.png", size: "30x30") %>
+        <%= article.get_downvotes.size %><%= image_tag("dislike.png", size: "30x30") %>
+        <p><%= link_to 'Show', article %>
         <% if user_signed_in? && current_user == article.user %>
         <%= link_to 'Edit', edit_article_path(article) %>
         <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
