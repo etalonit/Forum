@@ -1,4 +1,4 @@
-<div class="w-100 p-3 border border-dark rounded mybtn" style="background-color: #eee;">
+<div class="w-100 border border-dark rounded mybtn" style="background-color: #eee;">
 <h4>This article has <%= pluralize(@comments.count, "Comment") %> : </h4>
 <% @comments.each do |comment| %>
  <p><h4><%= link_to avatar_for(comment.user, size: 25), current_user %>  <b><%= comment.user.email %></b></h4>
