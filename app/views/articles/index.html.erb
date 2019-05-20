@@ -1,21 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Articles Board</h1>
-
-<% @articles.each do |article| %>
-        <p><%= image_tag article.image(:thumb) %></p>
-        <p><h3><%= article.title %></h3></p>
-        <div class= "conteiner "> <%= article.content %></div>
-        <h5>Author: <%= article.user.email %></h5>
-        <p><strong>Created </strong><%= time_ago_in_words(article.created_at) %> ago</p>
-        <%= article.get_upvotes.size %><%= image_tag("like.png", size: "30x30") %>
-        <%= article.get_downvotes.size %><%= image_tag("dislike.png", size: "30x30") %>
-        <p><%= link_to 'Show', article %>
+<h1 class="text-center">Articles Board</h1>
+<hr>
+<div class="col col-lg-2">
+    <p id="notice"><%= notice %></p>
+    <% @articles.each do |article| %>
+        <p><%= image_tag article.image(:thumb) if article.image? %></p>
+        <p><h3><strong><%= link_to article.title, article %></h3></strong>
         <% if user_signed_in? && current_user == article.user %>
         <%= link_to 'Edit', edit_article_path(article) %>
-        <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'New Article', new_article_path %>
-      </p>
+        <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-    <% end %>
-
+        <h6>Created <%= time_ago_in_words(article.created_at) %> ago</h6></p>
+        <div class= "conteiner"><h4><%= article.content %></h4></div>
+        <h6><strong>Author : </strong><%= article.user.email %></h6>
+        <%= article.get_upvotes.size %><%= image_tag("like.png", size: "30x30") %>
+        <%= article.get_downvotes.size %><%= image_tag("dislike.png", size: "30x30") %>
+        <hr>
+        <% end %>
+</div>

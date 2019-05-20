@@ -1,25 +1,23 @@
-<nav class="navbar navbar-expand-sm bg-dark">
+<nav class="navbar navbar-expand-sm bg-white">
   <div class="col-sm-3">
-	<h5 class="my-0 mr-md-auto font-weight-bold text-primary">Forum</h5>
+	<h5 class="my-0 mr-md-auto font-weight-bold text-dark"><%= link_to 'Forum', root_path %></h5>
 </div>
-  <div class="col-sm-5 d-flex justify-content-center">
+  <div class="col-sm-6 d-flex justify-content-center">
   <span class="navbar-text">  	
-  	<span class="btn btn-outline-primary"><%= link_to 'About', about_path %></span>
-  	<span class="btn btn-outline-primary"><%= link_to 'Articles bord', articles_path %></span>
+  	<span class="btn btn-outline-dark"><%= link_to 'About', about_path %></span>
+  	<span class="btn btn-outline-dark"><%= link_to 'Articles bord', articles_path %></span>
   	<% if user_signed_in? %>
-  	<span class="btn btn-outline-primary"><%= link_to 'Logout',  destroy_user_session_path, method: :delete %></span>
-    <span class="btn btn-outline-primary"><%= link_to 'New Article', new_article_path %></span>
-  </span>
-  <span class="btn btn-outline-primary"><%= link_to 'Edit User', edit_user_registration_path %></span>
-  </span>
+  	<span class="btn btn-outline-dark"><%= link_to 'Logout',  destroy_user_session_path, method: :delete %></span>
+    <span class="btn btn-outline-dark"><%= link_to 'New Article', new_article_path %></span>
   	<% else %>
-  	<span class="btn btn-outline-primary"><%= link_to 'Login', user_session_path %></span>
+  	<span class="btn btn-outline-dark"><%= link_to 'Login', user_session_path %></span>
   	<% end %>
 </div>
-  <div class="col-sm-4 d-flex flex-row-reverse">
+  <div class="col-sm-3 d-flex flex-row-reverse">
   	<form class="form-inline my-2 my-lg-0">
       <% if user_signed_in? %>
-    <%= link_to avatar_for(current_user, size: 35), current_user %>
+      <span class="btn btn-outline-dark text-left"><%= link_to 'Edit User', edit_user_registration_path %></span>
+      <%= link_to avatar_for(current_user, size: 35), current_user %>
     <% end %>
   </form>
 </div>
