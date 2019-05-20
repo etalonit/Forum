@@ -1,68 +1,71 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @article.image.url(:medium) %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @article.user.email %>
-</p>
-<p>
-<div class="caption" style="text-align:left;">
-            <%= link_to like_article_path(@article), class: "like", method: :put do %>
-            <button type="button" class="btn btn-info" arial-label="Left Align">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>
+<head profile="http://gmpg.org/xfn/11">
+    <style>
+        .Box {
+            margin-left:10px;
+            margin-bottom:30px;
+            width: 99%;
+            background-color: #eee;
+            position:relative;
+            border: 2px solid #D4D4D4;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #A9A9A9;
+            padding:20px 40px;
+        }
+    </style> 
+</head>
+<body>
+    <p id="notice"><%= notice %></p>
+    <div class="Box">
+      <h4><%= link_to avatar_for(@article.user, size: 25), current_user %>  <b><%= @article.user.email %></b></h4>
+      <p>Created: <%= time_ago_in_words(@article.created_at) %> ago</p>
+      <b><h1><%= @article.title %></h1></b>
+      <hr>
+      <p><%= image_tag @article.image.url(:medium) if @article.image? %></p>
+      <h3><%= @article.content %></h3>
+      <p>
+        <% if @article.audio? %>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $("#jquery_jplayer_1").jPlayer({
+              ready: function () {
+                $(this).jPlayer("setMedia", {
+                  mp3: "<%= @article.audio.url %>" 
+                });
+              },
+              swfPath: "/js",
+              supplied: "mp3"
+            });
+          });
+        </script>
+        <div id="jquery_jplayer_1"></div>
+        <div id="jp_container_1">
+          <a href="javascript:;" class="jp-play">Play</a>
+          <a href="javascript:;" class="jp-pause">Pause</a>
+          <div class="jp-current-time"></div>
+        </div>
+      </p>
+      <% end %>
+      <hr>
+      <p>
+        <div class="caption" style="text-align:left;">
+          <%= link_to like_article_path(@article), class: "like", method: :put do %>
+          <button type="button" class="btn btn-outline-dark" arial-label="Left Align">
             <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true" ></span> 
-            <span class="badge"><%= @article.get_upvotes.size %></span>
-            </button>
-         <% end %>
-         <%= link_to dislike_article_path(@article), method: :put do %>
-         <button type="button" class="btn btn-info" arial-label="Left Align">
-         <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true" ></span>
-         <span class="badge"><%= @article.get_downvotes.size %></span>
-         </button>
-         <% end %>   
-     </div>
-</p>
-<p>
-<script type="text/javascript">
- $(document).ready(function(){
-  $("#jquery_jplayer_1").jPlayer({
-   ready: function () {
-    $(this).jPlayer("setMedia", {
-     mp3: "<%= @article.audio.url %>" 
-    });
-   },
-   swfPath: "/js",
-   supplied: "mp3"
-  });
- });
-</script>
-<div id="jquery_jplayer_1"></div>
-<div id="jp_container_1">
- <a href="javascript:;" class="jp-play">Play</a>
- <a href="javascript:;" class="jp-pause">Pause</a>
- <div class="jp-current-time"></div>
-</div>
-</p>
-<p>
-  <strong>Created</strong>
-  <%= time_ago_in_words(@article.created_at) %> ago
-</p>
-
-
-
-<%= render 'comments/comment' %>
-
-<%= link_to 'Back', articles_path %>
+            <span class="badge"><%= image_tag("lik.png", size: "30x30") %>  <%= @article.get_upvotes.size %></span>
+          </button>
+          <% end %>
+          <%= link_to dislike_article_path(@article), method: :put do %>
+          <button type="button" class="btn btn-outline-dark" arial-label="Left Align">
+            <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true" ></span>
+            <span class="badge"><%= image_tag("dis.png", size: "30x30") %> <%= @article.get_downvotes.size %></span>
+          </button>
+          <% end %>
+        </div>
+      </p>
+      </div>
+      <%= render 'comments/comment' %>
+      <span class="btn btn-outline-dark" style="margin-left:40px;"><%= link_to 'Back', articles_path %></span>
+  </body>
+  </html>
