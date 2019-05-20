@@ -1,8 +1,26 @@
-<h1 class="text-center">Articles Board</h1>
-<hr>
-<div class="col col-lg-2">
-    <p id="notice"><%= notice %></p>
-    <% @articles.each do |article| %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>
+<head profile="http://gmpg.org/xfn/11">
+    <style>
+        .Box {
+            margin-left:10px;
+            margin-bottom:30px;
+            width: 99%;
+            background-color: #eee;
+            position:relative;
+            border: 2px solid #D4D4D4;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #A9A9A9;
+            padding:20px 40px;
+        }
+    </style> 
+</head> 
+<body>
+    <h1 class="text-center">Articles Board</h1>
+    <hr>
+        <p id="notice"><%= notice %></p>
+        <% @articles.each do |article| %>
+        <div class="Box">
         <p><h3><strong><%= link_to article.title, article %></h3></strong>
         <% if user_signed_in? && current_user == article.user %>
         <%= link_to 'Edit', edit_article_path(article) %>
@@ -14,6 +32,7 @@
         <h6><strong>Author : </strong><%= article.user.email %></h6>
         <%= article.get_upvotes.size %><%= image_tag("like.png", size: "30x30") %>
         <%= article.get_downvotes.size %><%= image_tag("dislike.png", size: "30x30") %>
-        <hr>
-        <% end %>
-</div>
+    </div>
+    <% end %>
+</body>
+</html>
