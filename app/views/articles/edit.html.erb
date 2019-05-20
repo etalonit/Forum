@@ -1,7 +1,5 @@
-<h1>Editing Article</h1>
-
+<h1 class="text-center">Editing Article</h1>
+<hr>
 <%= render 'form', article: @article %>
-
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
- 
+<span class="btn btn-outline-dark"><%= link_to 'Show', @article %></span>
+<span class="btn btn-outline-dark"><%= link_to 'Back', articles_path %></span>
