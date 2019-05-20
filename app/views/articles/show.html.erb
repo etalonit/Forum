@@ -1,24 +1,13 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @article.image.url(:medium) %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @article.user.email %>
-</p>
+<h1 class="text-center"><%= @article.title %></h1>
+<hr>
+<div class="col col-lg-2">
+<h5><strong>User: </strong><%= @article.user.email %></h5>
+<p>Created: <%= time_ago_in_words(@article.created_at) %> ago</p>
+<hr>
+<p><%= image_tag @article.image.url(:medium) if @article.image? %></p>
+<h3><%= @article.content %></h3>
+<hr>
 <p>
 <div class="caption" style="text-align:left;">
             <%= link_to like_article_path(@article), class: "like", method: :put do %>
@@ -36,6 +25,7 @@
      </div>
 </p>
 <p>
+<% if @article.audio? %>
 <script type="text/javascript">
  $(document).ready(function(){
   $("#jquery_jplayer_1").jPlayer({
@@ -56,13 +46,7 @@
  <div class="jp-current-time"></div>
 </div>
 </p>
-<p>
-  <strong>Created</strong>
-  <%= time_ago_in_words(@article.created_at) %> ago
-</p>
-
-
-
+<% end %>
 <%= render 'comments/comment' %>
-
-<%= link_to 'Back', articles_path %>
+<span class="btn btn-outline-dark"><%= link_to 'Back', articles_path %></span>
+</div>
