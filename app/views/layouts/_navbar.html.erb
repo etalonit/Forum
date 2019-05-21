@@ -9,8 +9,8 @@
   	<%= link_to 'About', about_path, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
   	<%= link_to 'Articles board', articles_path, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
   	<% if user_signed_in? %>
-  	<%= link_to 'Logout',  destroy_user_session_path, method: :delete, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
     <%= link_to 'New Article', new_article_path, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
+  	<%= link_to 'Logout',  destroy_user_session_path, method: :delete, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
   	<% else %>
   	<%= link_to 'Login', user_session_path, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
   	<% end %>
