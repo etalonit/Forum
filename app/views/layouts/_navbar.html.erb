@@ -7,7 +7,7 @@
   <div class="col-sm-6 d-flex justify-content-center">
   <span class="navbar-text">  	
   	<span class="btn btn-outline-dark"><%= link_to 'About', about_path %></span>
-  	<span class="btn btn-outline-dark"><%= link_to 'Articles bord', articles_path %></span>
+  	<span class="btn btn-outline-dark"><%= link_to 'Articles board', articles_path %></span>
   	<% if user_signed_in? %>
   	<span class="btn btn-outline-dark"><%= link_to 'Logout',  destroy_user_session_path, method: :delete %></span>
     <span class="btn btn-outline-dark"><%= link_to 'New Article', new_article_path %></span>
