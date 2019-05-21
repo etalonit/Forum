@@ -2,3 +2,19 @@
 @import "bootstrap";
 // Modules
 @import "modules/avatar";
+.Box {
+            margin-left:10px;
+            margin-bottom:30px;
+            width: 99%;
+            background-color: #eee;
+            position:relative;
+            border: 2px solid #D4D4D4;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #A9A9A9;
+            padding:20px 40px;
+        }
+.Box1 {
+            margin-left:40px;
+            margin-bottom:30px;
+            width: 90%;
+        }
