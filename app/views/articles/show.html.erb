@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="Box">
-  <h4><%= link_to avatar_for(@article.user, size: 25), current_user %>  <b><%= @article.user.email %></b></h4>
+  <h4><%= link_to avatar_for(@article.user, size: 25), @article.user %>  <b><%= @article.user.email %></b></h4>
   <p>Created: <%= time_ago_in_words(@article.created_at) %> ago <% if user_signed_in? && current_user == @article.user %>
     <span class="btn btn-outline-dark"><%= link_to 'Edit', edit_article_path(@article) %></span>
     <span class="btn btn-outline-dark"><%= link_to 'Delete', @article, method: :delete, data: { confirm: 'Are you sure?' } %></span>
