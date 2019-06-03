@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:password) }
   end
 
-  describe "associations" do
+  context "associations" do
     it { should have_many(:articles)}
 
     it { should have_many(:comments).dependent(:destroy)}

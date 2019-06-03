@@ -7,5 +7,6 @@ FactoryBot.define do
     avatar { Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/noavatar.png'), 'image/png') }
     email {"tester@test.com"}
     password {"tester"}
+    password_confirmation {"tester"}
   end
 end

@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
 let!(:user){create(:user)}
 let!(:article){create(:article)}
+
   subject{
-		build(:comment, user: user, article: article)
+		build(:comment)
 	}
   	describe "validation" do
   		it "is valid with valid attributes" do

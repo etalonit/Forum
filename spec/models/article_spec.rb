@@ -7,7 +7,7 @@ RSpec.describe Article, type: :model do
   }
 
   subject{
-     build(:article, user: user)
+     build(:article)
   }
 
   context "validation" do
