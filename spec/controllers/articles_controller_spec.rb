@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ArticlesController, type: :controller do
+  
   let!(:user){ build(:user, email: "test@test.com")}
 
   login_user
