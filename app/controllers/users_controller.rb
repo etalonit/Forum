@@ -3,7 +3,4 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	@user_articles = @user.articles
   end
-
- 
-
 end

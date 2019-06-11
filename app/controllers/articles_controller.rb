@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = current_user.articles.build
+    @article = Article.new #current_user.articles.build
   end
 
   # GET /articles/1/edit

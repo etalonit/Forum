@@ -20,7 +20,7 @@ let!(:article){create(:article)}
    			subject.user_id = nil
    			expect(subject).to_not be_valid
    		end
-   		it "is not valid without article_id" do
+   		it "is use_transactional_fixturest valid without article_id" do
    			subject.article_id = nil
    			expect(subject).to_not be_valid
    		end
