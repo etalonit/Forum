@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     put "like" =>"articles#upvote"
     put "dislike" =>"articles#downvote"
    end
-  end   
+  end
 end
