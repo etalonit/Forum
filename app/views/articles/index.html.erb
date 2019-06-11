@@ -12,7 +12,9 @@
     <p><%= image_tag article.image(:thumb) if article.image? %></p>
     <div class= "conteiner"><h4><%= article.content %></h4></div>
     <h6><strong>Author : </strong><%= article.user.email %></h6>
-    <%= article.get_upvotes.size %><%= image_tag("like.png", size: "30x30") %>
-    <%= article.get_downvotes.size %><%= image_tag("dislike.png", size: "30x30") %>
+    <span class="badge badge-secondary">
+    <%= article.get_upvotes.size %></span>&nbsp;<%= image_tag("lik.png", size: "20x20") %>&nbsp;
+    <span class="badge badge-secondary">
+    <%= article.get_downvotes.size %></span>&nbsp;<%= image_tag("dis.png", size: "20x20") %>
 </div>
 <% end %>
