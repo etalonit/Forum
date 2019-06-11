@@ -1,24 +1,24 @@
-<nav class="sticky-top position-sticky navbar navbar-expand-sm" style="background-color: #eee; border: 2px solid #D4D4D4;
+<nav class="sticky-top position-sticky navbar navbar-expand-sm" style="background-color: #696969; border: 3px solid #D4D4D4;
             border-radius: 10px;
-            box-shadow: 0 0 15px #A9A9A9;">
+            box-shadow: 0 0 20px #A9A9A9;">
   <div class="col-sm-3">
-	<h5 class="my-0 mr-md-auto font-weight-bold text-dark"><%= link_to 'Forum', root_path %></h5>
+	<h5><%= link_to 'Forum', root_path, class:"my-0 mr-md-auto font-weight-bold text-white", style:"Text-decoration: none" %></h5>
 </div>
   <div class="col-sm-6 d-flex justify-content-center">
   <span class="navbar-text">  	
-  	<span class="btn btn-outline-dark"><%= link_to 'About', about_path %></span>
-  	<span class="btn btn-outline-dark"><%= link_to 'Articles bord', articles_path %></span>
+  	<%= link_to 'About', about_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
+  	<%= link_to 'Articles board', articles_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<% if user_signed_in? %>
-  	<span class="btn btn-outline-dark"><%= link_to 'Logout',  destroy_user_session_path, method: :delete %></span>
-    <span class="btn btn-outline-dark"><%= link_to 'New Article', new_article_path %></span>
+    <%= link_to 'New Article', new_article_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
+  	<%= link_to 'Logout',  destroy_user_session_path, method: :delete, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<% else %>
-  	<span class="btn btn-outline-dark"><%= link_to 'Login', user_session_path %></span>
+  	<%= link_to 'Login', user_session_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<% end %>
 </div>
   <div class="col-sm-3 d-flex flex-row-reverse">
   	<form class="form-inline my-2 my-lg-0">
       <% if user_signed_in? %>
-      <span class="btn btn-outline-dark text-left"><%= link_to 'Edit User', edit_user_registration_path %></span>
+      <%= link_to 'Edit User', edit_user_registration_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
       <%= link_to avatar_for(current_user, size: 35), current_user %>
     <% end %>
   </form>
