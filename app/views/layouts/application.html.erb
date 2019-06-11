@@ -11,5 +11,6 @@
   <body>
     <%= render 'layouts/navbar' %>
     <%= yield %>
+    <%= paginate @articles %>
   </body>
 </html>
