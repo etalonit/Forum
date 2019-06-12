@@ -5,9 +5,9 @@ class ArticlesController < ApplicationController
   def index
       if params.has_key?(:category)
         @category = Category.find_by_name(params[:category])
-        @articles = Article.where(category: @category)
+        @articles = Article.where(category: @category).order(:cached_votes_score => :desc)
       else
-        @articles = Article.search(params[:search]).order(:title).page(params[:page])
+        @articles = Article.search(params[:search]).order(:title, :cached_votes_score => :desc).page(params[:page])
       end
   end
 
@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
   
   def show
     @comments = Comment.where(article_id: @article).order("created_at DESC")
+    
   end
 
   
@@ -71,7 +72,7 @@ class ArticlesController < ApplicationController
   private
    
     def set_article
-      @article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
     end
 
    
