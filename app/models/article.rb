@@ -13,4 +13,5 @@ class Article < ApplicationRecord
     validates_attachment :audio, :content_type => { :content_type => ['audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]}
     
     paginates_per 3
+    belongs_to :category
 end

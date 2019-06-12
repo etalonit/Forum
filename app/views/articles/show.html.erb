@@ -46,6 +46,10 @@
               <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true" ></span>
               <span class="badge"><%= image_tag("dis.png", size: "30x30") %> <%= @article.get_downvotes.size %></span>
             </button>
+            <% if @article.category.present? %>
+            <br>
+            <br><%= link_to @article.category.name, @article.category %>
+            <% end %>
             <% end %>
           </div>
         </p>

@@ -1,6 +1,4 @@
-<h1 class="text-center">Articles Board</h1>
-<hr>
-<p id="notice"><%= notice %></p>
+<h2><%= @category.name %></h2>
 <% @articles.each do |article| %>
 <div class="Box">
     <p><h3><strong><%= link_to article.title, article %></h3></strong>
@@ -22,4 +20,4 @@
     <%= article.get_downvotes.size %></span>&nbsp;<%= image_tag("dis.png", size: "20x20") %>
 </div>
 <% end %>
-  <%= paginate @articles %>
+<%= paginate @articles %>

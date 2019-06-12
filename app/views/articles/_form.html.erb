@@ -30,6 +30,11 @@
     <%= f.file_field :audio %>
   </div>
 
+  <div class="field">
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, Category.order(:name), :id, :name, { include_blank: true} %>
+  </div>
+
   <div class="actions">
     <button type="submit" class="btn btn-outline-dark">Submit</button>
   </div>

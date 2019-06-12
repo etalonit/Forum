@@ -1,0 +1,29 @@
+<br>
+<%= link_to "New category", new_category_path%>
+
+<section id="categories">
+	<br>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Name </th>
+				<th>Patenr category</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @category.each_with_index do |category, index| %>
+			<tr>
+				<td><%= index + 1 %></td>
+				<td><%= category.name %></td>
+				<td><%= category.parent.name if category.parent.present? %></td>
+				<td>
+					<%= link_to 'Delete category', category_path(category), method: :delete, data: { confirm: 'Really?'} %>
+					<%= link_to 'Edit category', edit_category_path(category) %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</section>

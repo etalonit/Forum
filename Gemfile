@@ -45,6 +45,7 @@ gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem "mini_magick"
 gem 'acts_as_votable', '~> 0.12.0'
 gem 'kaminari'
+gem 'ancestry'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

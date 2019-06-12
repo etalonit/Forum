@@ -56,6 +56,8 @@ GEM
     acts_as_votable (0.12.0)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    ancestry (3.0.7)
+      activerecord (>= 3.2.0)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -292,6 +294,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable (~> 0.12.0)
+  ancestry
   bootsnap (>= 1.1.0)
   bootstrap
   byebug
