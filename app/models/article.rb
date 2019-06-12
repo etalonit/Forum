@@ -23,7 +23,4 @@ class Article < ApplicationRecord
         all
        end
     end
-
-  extend FriendlyId
-  friendly_id :title, use: :slugged
 end

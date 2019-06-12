@@ -21,8 +21,12 @@
       </ul>
       <strong>User articles:</strong> <br>
       <a class="website"><% @user_articles.each do |article| %>
-		<%=  link_to article.title, article_path(article)  %><br>
-		<% end %></a>
+        <hr>
+      <p><%= image_tag article.image(:thumb) if article.image? %></p>
+         <%=  link_to article.title, article_path(article)  %><br>
+         <h4><%= article.content %></h4>
+        <p><h6>Created <%= time_ago_in_words(article.created_at) %> ago</h6></p>
+		  <% end %></a>
     </div>
   </div>
 </div>
