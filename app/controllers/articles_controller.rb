@@ -4,10 +4,10 @@ class ArticlesController < ApplicationController
   
   def index
       if params.has_key?(:category)
-        @category = Category.find_by_name(params[:category])
-        @articles = Article.where(category: @category)
+        @category = Category.find_by_name(params[:category]).order(:cached_votes_score => :desc)
+        @articles = Article.where(category: @category).order(:cached_votes_score => :desc)
       else
-        @articles = Article.search(params[:search]).order(:title).page(params[:page])
+        @articles = Article.search(params[:search]).order(:title).page(params[:page]).order(:cached_votes_score => :desc)
       end
   end
 
