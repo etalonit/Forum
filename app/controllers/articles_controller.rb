@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
         @category = Category.find_by_name(params[:category])
         @articles = Article.where(category: @category)
       else
-        @articles = Article.order(:title).page(params[:page])
+        @articles = Article.search(params[:search]).order(:title).page(params[:page])
       end
   end
 

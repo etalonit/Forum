@@ -14,4 +14,13 @@ class Article < ApplicationRecord
     
     paginates_per 3
     belongs_to :category
+
+
+    def self.search(search)
+       if search
+        where(['title LIKE ?', "%#{search}%"])
+       else
+        all
+       end
+    end
 end

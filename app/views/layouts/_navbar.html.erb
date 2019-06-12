@@ -14,9 +14,16 @@
   	<% else %>
   	<%= link_to 'Login', user_session_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<% end %>
+    
 </div>
   <div class="col-sm-3 d-flex flex-row-reverse">
   	<form class="form-inline my-2 my-lg-0">
+      <%= form_tag articles_path, :method => 'get' do %>
+      <p>
+       <%= text_field_tag :search, params[:search] %>
+       <%= submit_tag "Search", :name => nil %>
+     </p>
+    <% end %>
       <% if user_signed_in? %>
       <%= link_to 'Edit User', edit_user_registration_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>&nbsp;&nbsp;
       <%= link_to avatar_for(current_user, size: 35), current_user %>
