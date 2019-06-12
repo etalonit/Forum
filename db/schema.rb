@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_131511) do
+ActiveRecord::Schema.define(version: 2019_06_12_154353) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -28,20 +28,6 @@ ActiveRecord::Schema.define(version: 2019_06_12_131511) do
     t.datetime "audio_updated_at"
     t.integer "category_id"
     t.string "slug"
-    t.integer "cached_votes_total", default: 0
-    t.integer "cached_votes_score", default: 0
-    t.integer "cached_votes_up", default: 0
-    t.integer "cached_votes_down", default: 0
-    t.integer "cached_weighted_score", default: 0
-    t.integer "cached_weighted_total", default: 0
-    t.float "cached_weighted_average", default: 0.0
-    t.integer "cached_scoped_subscribe_votes_total", default: 0
-    t.integer "cached_scoped_subscribe_votes_score", default: 0
-    t.integer "cached_scoped_subscribe_votes_up", default: 0
-    t.integer "cached_scoped_subscribe_votes_down", default: 0
-    t.integer "cached_weighted_subscribe_score", default: 0
-    t.integer "cached_weighted_subscribe_total", default: 0
-    t.float "cached_weighted_subscribe_average", default: 0.0
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["slug"], name: "index_articles_on_slug", unique: true
   end
@@ -60,7 +46,9 @@ ActiveRecord::Schema.define(version: 2019_06_12_131511) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["slug"], name: "index_comments_on_slug", unique: true
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
