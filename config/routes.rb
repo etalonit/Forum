@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     put "dislike" =>"articles#downvote"
    end
   end
+  resources :categories
 end
