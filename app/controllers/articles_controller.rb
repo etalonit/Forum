@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
   
   def show
     @comments = Comment.where(article_id: @article).order("created_at DESC")
+    
   end
 
   
@@ -71,7 +72,7 @@ class ArticlesController < ApplicationController
   private
    
     def set_article
-      @article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
     end
 
    

@@ -3,7 +3,14 @@
             box-shadow: 0 0 20px #A9A9A9;">
   <div class="col-sm-3">
 	<h5><%= link_to 'Forum', root_path, class:"my-0 mr-md-auto font-weight-bold text-white", style:"Text-decoration: none" %></h5>
+  <%= form_tag articles_path, :method => 'get' do %>
+      <p>
+       <%= text_field_tag :search, params[:search] %>
+       <%= submit_tag "Search", :name => nil %>
+     </p>
+    <% end %>
 </div>
+
   <div class="col-sm-6 d-flex justify-content-center">
   <span class="navbar-text">  	
   	<%= link_to 'About', about_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
@@ -18,12 +25,6 @@
 </div>
   <div class="col-sm-3 d-flex flex-row-reverse">
   	<form class="form-inline my-2 my-lg-0">
-      <%= form_tag articles_path, :method => 'get' do %>
-      <p>
-       <%= text_field_tag :search, params[:search] %>
-       <%= submit_tag "Search", :name => nil %>
-     </p>
-    <% end %>
       <% if user_signed_in? %>
       <%= link_to 'Edit User', edit_user_registration_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>&nbsp;&nbsp;
       <%= link_to avatar_for(current_user, size: 35), current_user %>
