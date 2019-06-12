@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_154353) do
+ActiveRecord::Schema.define(version: 2019_06_12_124708) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -27,9 +27,7 @@ ActiveRecord::Schema.define(version: 2019_06_12_154353) do
     t.bigint "audio_file_size"
     t.datetime "audio_updated_at"
     t.integer "category_id"
-    t.string "slug"
     t.index ["category_id"], name: "index_articles_on_category_id"
-    t.index ["slug"], name: "index_articles_on_slug", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
@@ -46,9 +44,7 @@ ActiveRecord::Schema.define(version: 2019_06_12_154353) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "slug"
     t.index ["article_id"], name: "index_comments_on_article_id"
-    t.index ["slug"], name: "index_comments_on_slug", unique: true
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
