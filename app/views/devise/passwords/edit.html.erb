@@ -6,7 +6,7 @@
   <%= f.hidden_field :reset_password_token %>
 
   <div class="field">
-    <%= f.label :password, "New password" %><br />
+    <%= f.label :password, t('devise.send_me_reset') %><br />
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
     <% end %>
@@ -14,12 +14,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
+    <%= f.label :password_confirmation, t('devise.confirm_new_password') %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <button type="submit" class="btn btn-outline-dark">Change my password</button>
+    <button type="submit" class="btn btn-outline-dark"><%= t('devise.change_my_password') %></button>
   </div>
 <% end %>
 
