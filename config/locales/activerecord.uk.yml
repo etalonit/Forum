@@ -1,0 +1,26 @@
+uk:
+  activerecord:
+    models:
+      article: 'Стаття'
+      user: 'Користувач'
+    attributes:
+        article:
+          title: 'Назва'
+          content: 'Вміст'
+          image: 'Зображення'
+          audio: 'Музика'
+          category_id: 'Категорія'
+          category: 'Категорія'
+        user:
+          email: 'Адрес електронної пошти'
+          password: 'Пароль'
+          first_name: "Ім'я"
+          last_name: "Прізвище"
+          birthday: "День народження"
+          password_confirmation: "Підтвердження паролю"
+          remember_me: "Запам'ятати мене"
+    errors:
+      messages:
+        blank: 'не може бути пустим полем'
+        required: 'не може бути пустим полем'
+        too_short: 'є дуже коротким'

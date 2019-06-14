@@ -65,14 +65,14 @@
   </div>
 
   <div class="actions">
-    <button type="submit" class="btn btn-outline-dark">Update</button>
+    <button type="submit" class="btn btn-outline-dark"><%= t('devise.sign_up') %></button>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3><%= t('devise.cancel_my_account') %></h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= t('devise.unhappy') %> <%= button_to t('devise.cancel_my_account'), registration_path(resource_name), data: { confirm: t('devise.are_you_sure') }, method: :delete %></p>
 
-<span class="btn btn-outline-dark"><%= link_to 'Back', articles_path %></span>
+<span class="btn btn-outline-dark"><%= link_to t('common.back'), articles_path %></span>
 </div>
 </div>
