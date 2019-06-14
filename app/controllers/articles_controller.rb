@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
         @category = Category.find_by_name(params[:category])
         @articles = Article.where(category: @category).order(:cached_votes_score => :desc)
       else
-        @articles = Article.search(params[:search]).order(:title, :cached_votes_score => :desc).page(params[:page])
+        @articles = Article.order(:title, :cached_votes_score => :desc).page(params[:page]).search(params[:search])
       end
   end
 

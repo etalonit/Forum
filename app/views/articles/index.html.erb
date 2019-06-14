@@ -1,6 +1,10 @@
 <h1 class="text-center"><%= t('.title') %></h1>
 <hr>
 <p id="notice"><%= notice %></p>
+  <%= form_tag articles_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  <% end %>
 <% @articles.each do |article| %>
 <div class="Box">
     <p><h3><strong><%= link_to article.title, article %></h3></strong>
