@@ -19,6 +19,13 @@ uk:
           birthday: "День народження"
           password_confirmation: "Підтвердження паролю"
           remember_me: "Запам'ятати мене"
+          username: "Логін"
+          about: "Про себе"
+          avatar: "Аватарка"
+          current_password: "Теперішній пароль"
+        category:
+          name: "Ім'я"
+          parent_id: "Батьківський ідентифікатор"
     errors:
       messages:
         blank: 'не може бути пустим полем'
