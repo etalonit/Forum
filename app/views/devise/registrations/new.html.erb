@@ -7,17 +7,17 @@
 
   <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, placeholder:"Enter your firstname" %>
+    <%= f.text_field :first_name, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, placeholder:"Enter your lastname" %>
+    <%= f.text_field :last_name, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, placeholder:"Enter your username" %>
+    <%= f.text_field :username, autofocus: true %>
   </div>
 
   <div class="field">
@@ -27,24 +27,24 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Enter your email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> <%= t('devise.characters_minimum') %>)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder:"Enter your password" %>
+    <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"Confirm your password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <button type="submit" class="btn btn-outline-dark">Sign up</button>
+    <button type="submit" class="btn btn-outline-dark"><%= t('devise.sign_up') %></button>
   </div>
 <% end %>
 
