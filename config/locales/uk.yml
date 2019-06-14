@@ -29,7 +29,6 @@ uk:
     parent_category: "Батьківська категорія"
   navbar:
     search: "Пошук"
-    search_article: "Пошук статті"
     about: "Про нас"
     articles_board: "Статті"
     new_article: "Створити статтю"
