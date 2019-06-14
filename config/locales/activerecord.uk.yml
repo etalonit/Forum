@@ -1,0 +1,17 @@
+uk:
+  activerecord:
+    models:
+      article: 'Стаття'
+    attributes:
+        article:
+          title: 'Назва'
+          content: 'Вміст'
+          image: 'Зображення'
+          audio: 'Музика'
+          category_id: 'Категорія'
+          category: 'Категорія'
+    errors:
+      messages:
+        blank: 'не може бути пустим полем'
+        required: 'не може бути пустим полем'
+    

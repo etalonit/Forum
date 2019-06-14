@@ -1,7 +1,7 @@
 <%= form_for @article do |f| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <h2><%= t('common.errors') %></h2>
       <ul>
       <% article.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -36,6 +36,7 @@
   </div>
 
   <div class="actions">
-    <button type="submit" class="btn btn-outline-dark">Submit</button>
+    <button type="submit" class="btn btn-outline-dark"><%= t('.submit', action: @article.new_record? ? 'Создати' : 'Змінити') %></button>
   </div>
+  <%= link_to t('common.back'), articles_path, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
 <% end %>

@@ -1,0 +1,14 @@
+uk:
+  common:
+    errors: "При заповнені форми виникли"
+    back: "Назад"
+  articles:
+    index:
+      title: "Статті"
+    new:
+      title: "Нова стаття"
+    edit:
+      title: "Редагування статті"
+    form:
+        submit:
+          '%{action} статтю'

@@ -1,17 +1,23 @@
 <nav class="sticky-top position-sticky navbar navbar-expand-sm" style="background-color: #696969; border: 3px solid #D4D4D4;
             border-radius: 10px;
             box-shadow: 0 0 20px #A9A9A9;">
-  <div class="col-sm-3">
+  <div class="col-sm-1">
 	<h5><%= link_to 'Forum', root_path, class:"my-0 mr-md-auto font-weight-bold text-white", style:"Text-decoration: none" %></h5>
-  <%= form_tag articles_path, :method => 'get' do %>
-      <p>
-       <%= text_field_tag :search, params[:search] %>
-       <%= submit_tag "Search", :name => nil %>
-     </p>
-    <% end %>
 </div>
 
-  <div class="col-sm-6 d-flex justify-content-center">
+<div class="col-sm-1.5">
+    <%= form_tag articles_path, :method => 'get' do %>
+      <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control form-control" placeholder="Search article" aria-label="Search"  type=<%= text_field_tag :search, params[:search] %>
+  </div>
+  <div class="col-sm-1">
+  <button class="btn btn-outline-light my-2 my-sm-0" type="submit_tag">Search</button>
+  </form>
+<% end %>
+</div>
+
+
+  <div class="col-sm-5 d-flex justify-content-center">
   <span class="navbar-text">  	
   	<%= link_to 'About', about_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<%= link_to 'Articles board', articles_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
@@ -22,9 +28,8 @@
   	<% else %>
   	<%= link_to 'Login', user_session_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<% end %>
-    
 </div>
-  <div class="col-sm-3 d-flex flex-row-reverse">
+<div class="col-sm-4 d-flex flex-row-reverse">
   	<form class="form-inline my-2 my-lg-0">
       <% if user_signed_in? %>
       <%= link_to 'Edit User', edit_user_registration_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>&nbsp;&nbsp;
