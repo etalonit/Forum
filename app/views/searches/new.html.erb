@@ -1,0 +1,22 @@
+<h1>Custom Search</h1>
+
+<%= form_for @search, html: {class: "pure-form"} do |s| %>
+
+	<div class="field">
+		<%= s.label :keywords %><br>
+		<%= s.text_field :keywords %>
+	</div>
+
+	<div class="field">
+		<%= s.label :content %><br>
+		<%= s.text_field :content %>
+	</div>
+
+
+	<div>
+		<%= s.submit "Search" %>
+	</div>
+
+<% end %>
+
+<p><%= link_to "Back", articles_path %></p>
