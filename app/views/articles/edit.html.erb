@@ -1,5 +1,4 @@
 <h1 class="text-center"><%= t('.title')%></h1>
 <hr>
 <%= render 'form', article: @article %>
-<span class="btn btn-outline-dark"><%= link_to 'Show', @article %></span>
-<span class="btn btn-outline-dark"><%= link_to 'Back', articles_path %></span>
+<%= link_to t('common.show'), @article, class:"btn btn-outline-dark", style:"Text-decoration: none" %>

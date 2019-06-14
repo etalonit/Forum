@@ -1,6 +1,6 @@
 <%= form_for([@article, @article.comments.build]) do |f| %>
   <% if user_signed_in? %>
-   <%= f.text_area :content, placeholder:"Enter your comment..." %>
-   <p><button type="submit" class="btn btn-outline-dark">Submit</button></p>
+   <%= f.text_area :content, placeholder:t('common.enter_your_comment') %>
+   <p><button type="submit" class="btn btn-outline-dark"><%= t('common.send') %></button></p>
 <% end %>
 <% end %>

@@ -8,10 +8,10 @@
 <div class="col-sm-1.5">
     <%= form_tag articles_path, :method => 'get' do %>
       <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control form-control" placeholder="Search article" aria-label="Search"  type=<%= text_field_tag :search, params[:search] %>
+        <input class="form-control form-control" placeholder=<%= t('navbar.search_article') %> type=<%= text_field_tag :search, params[:search] %>
   </div>
   <div class="col-sm-1">
-  <button class="btn btn-outline-light my-2 my-sm-0" type="submit_tag">Search</button>
+  <button class="btn btn-outline-light my-2 my-sm-0" type="submit_tag"><%= t('navbar.search') %></button>
   </form>
 <% end %>
 </div>
@@ -19,20 +19,20 @@
 
   <div class="col-sm-5 d-flex justify-content-center">
   <span class="navbar-text">  	
-  	<%= link_to 'About', about_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
-  	<%= link_to 'Articles board', articles_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
+  	<%= link_to t('navbar.about'), about_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
+  	<%= link_to t('navbar.articles_board'), articles_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<% if user_signed_in? %>
-    <%= link_to 'New Article', new_article_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
-    <%= link_to 'Categories', categories_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
-  	<%= link_to 'Logout',  destroy_user_session_path, method: :delete, class:"btn btn-outline-light", style:"Text-decoration: none" %>
+    <%= link_to t('navbar.new_article'), new_article_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
+    <%= link_to t('navbar.categories'), categories_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
+  	<%= link_to t('devise.log_out'),  destroy_user_session_path, method: :delete, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<% else %>
-  	<%= link_to 'Login', user_session_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
+  	<%= link_to t('devise.log_in'), user_session_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<% end %>
 </div>
 <div class="col-sm-4 d-flex flex-row-reverse">
   	<form class="form-inline my-2 my-lg-0">
       <% if user_signed_in? %>
-      <%= link_to 'Edit User', edit_user_registration_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>&nbsp;&nbsp;
+      <%= link_to t('navbar.edit_user'), edit_user_registration_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>&nbsp;&nbsp;
       <%= link_to avatar_for(current_user, size: 35), current_user %>
     <% end %>
   </form>
