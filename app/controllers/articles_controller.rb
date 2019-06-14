@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-
+ before_action :set_article, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+ before_action :article_owner, only: [:destroy, :edit, :update]
   
   def index
       if params.has_key?(:category)
@@ -78,5 +78,12 @@ class ArticlesController < ApplicationController
    
     def article_params
       params.require(:article).permit(:title, :content, :user_id, :image, :audio, :category_id)
+    end
+
+    def article_owner
+     unless current_user.id == @article.user_id
+     flash[:notice] = "You shall not pass!!!!"
+     redirect_to @article
+     end
     end
 end

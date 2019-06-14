@@ -8,16 +8,18 @@
 
 
   <div class="col-sm-5 d-flex justify-content-center">
-  <span class="navbar-text">  	
+  <span class="navbar-text"> 
   	<%= link_to t('navbar.about'), about_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<%= link_to t('navbar.articles_board'), articles_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<% if user_signed_in? %>
     <%= link_to t('navbar.new_article'), new_article_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
-    <%= link_to t('navbar.categories'), categories_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<%= link_to t('devise.log_out'),  destroy_user_session_path, method: :delete, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<% else %>
   	<%= link_to t('devise.log_in'), user_session_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<% end %>
+    <% if  user_signed_in? && current_user.try(:admin?)  %>
+  <%= link_to t('navbar.categories'), categories_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
+   <% end %>
 </div>
 <div class="col-sm-4 d-flex flex-row-reverse">
   	<form class="form-inline my-2 my-lg-0">

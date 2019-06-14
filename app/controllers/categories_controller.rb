@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy ]	
+   before_action :admin_owner, only: [:edit, :update, :destroy, :index, :show]
+
 	def index
 		@category = Category.all
 	end
@@ -51,6 +53,13 @@ class CategoriesController < ApplicationController
 
   def category_params 
   		params.require(:category).permit(:name, :parent_id)	
-  	end		
+  end
+
+  def admin_owner
+    unless current_user == @current_user.try(:admin?)
+     flash[:notice] = "You shall not pass!!!!"
+     redirect_to current_user
+    end
+  end
 	
 end
