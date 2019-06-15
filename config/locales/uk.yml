@@ -21,6 +21,11 @@ uk:
     enter_your_comment: "Напишіть свій комментар"
     send: "Відправити"
     editing_comment: "Редагування комментаря"
+    advanced_search: "Розширений пошук"
+    search_result: "Результати пошуку"
+    no_record_found: "Нічого не знайдено"
+    title: "Назва"
+    content: "Вміст"
   category:
     create: "Створити"
     new_category: "Створити категорію"
