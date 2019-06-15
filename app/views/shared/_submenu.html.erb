@@ -1,5 +1,7 @@
+<div class="Box2">
 <div class="submenu">
-	<h2><%= t('navbar.categories') %></h2>
+	<h5 class="font-weight-bold text-white text-center"><%= t('navbar.categories') %></h5>
+	<hr>
 	<ul class="nav nav-pills nav-stacked">
 		<% Category.roots.each do |category| %>
 	    <li class="nav-item">
@@ -8,4 +10,5 @@
 	    <% end %>
 	</li>
 	</ul>
+</div>
 </div>

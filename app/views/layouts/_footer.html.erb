@@ -1,0 +1,12 @@
+<footer class="footer">
+  <button type="button" class="btn btn-outline-white"><% if I18n.locale == :uk %>Укр<% else %>Eng<% end %></button>
+    <button type="button" class="btn btn-outline-white dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu">
+      <%= link_to "Укр", { locale: :uk }, class: "nav-link btn btn-outline-dark", style:"Text-decoration: none" %>
+      <%= link_to "Eng", { locale: :en }, class: "nav-link btn btn-outline-dark", style:"Text-decoration: none" %>
+    </div>
+  
+  <h6 class="text-center text-white">Azazazaza</h6>
+</footer>

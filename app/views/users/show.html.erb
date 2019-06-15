@@ -8,9 +8,7 @@
       <div class="user-wrapper">
         <h2 class="username"><%= @user.username %></h2>
         <% if user_signed_in? %>
-        <a class="edit-profile" href="<%= edit_user_registration_path %>">
-          <button><%= t('profile.edit') %></button>
-        </a>
+        <%= link_to t('profile.edit'), edit_user_registration_path, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
         <% end %>
       </div>
       <ul class="posts">
@@ -22,10 +20,7 @@
       <strong><%= t('profile.articles') %>:</strong> <br>
       <a class="website"><% @user_articles.each do |article| %>
         <hr>
-      <p><%= image_tag article.image(:thumb) if article.image? %></p>
          <%=  link_to article.title, article_path(article)  %><br>
-         <h4><%= article.content %></h4>
-        <p><h6><%= t('common.created') %> <%= article.created_at %></h6></p>
 		  <% end %></a>
     </div>
   </div>
