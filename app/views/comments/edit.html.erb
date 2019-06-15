@@ -1,5 +1,5 @@
 <%= form_for([@article, @comment]) do |f| %>
-<h1>Editing Comment</h1>
-   <%= f.text_area :content %>
-   <%= f.submit %>
+<h1><%= t('common.editing_comment') %></h1>
+   <%= f.text_area :content %><br>
+   <button type="submit" class="btn btn-outline-dark"><%= t('common.update') %></button>
 <% end %>

@@ -1,27 +1,42 @@
-<%= form_with(model: article, local: true) do |form| %>
-
+<%= form_for @article do |f| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t('common.errors') %></h2>
+      <ul>
+      <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, placeholder:"Enter title" %>
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder:"Enter title" %>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, placeholder:"Enter body" %>
+    <%= f.label :content %>
+    <%= f.text_area :content, placeholder:"Enter body" %>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
   </div>
 
   <div class="field">
-    <%= form.label :audio %>
-    <%= form.file_field :audio %>
+    <%= f.label :audio %>
+    <%= f.file_field :audio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, Category.order(:name), :id, :name, { include_blank: true} %>
   </div>
 
   <div class="actions">
-    <button type="submit" class="btn btn-outline-dark">Submit</button>
+    <button type="submit" class="btn btn-outline-dark"><%= t('.submit', action: @article.new_record? ? 'Создати' : 'Змінити') %></button>
   </div>
+  <%= link_to t('common.back'), articles_path, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
 <% end %>

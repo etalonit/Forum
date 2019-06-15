@@ -1,0 +1,11 @@
+<div class="submenu">
+	<h2><%= t('navbar.categories') %></h2>
+	<ul class="nav nav-pills nav-stacked">
+		<% Category.roots.each do |category| %>
+	    <li class="nav-item">
+	    	<%= link_to category.name, category, class: "nav-link #{'active' if current_page? (category_path(category)) || @article.present? && @article.category == category}" %>
+	    	<%= render 'shared/submenu_category', categories: category.root.descendants.arrange %>
+	    <% end %>
+	</li>
+	</ul>
+</div>

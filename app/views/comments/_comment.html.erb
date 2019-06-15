@@ -1,10 +1,11 @@
-<div class="Box1"><h4 class="text-center">This article has <%= pluralize(@comments.count, "Comment") %> : </h4>
+<div class="Box1"><h4 class="text-center"><%= t('common.this_article_has') %> <%= pluralize(@comments.count, t('common.comment')) %> : </h4>
 	<hr>
 	<% @comments.each do |comment| %>
 	<p><h5><%= link_to avatar_for(comment.user, size: 25), current_user %>  <b><%= comment.user.username %></b></h5>
-		<%= time_ago_in_words(comment.created_at) %> ago <% if current_user == comment.user %>
-		<span class="btn btn-outline-dark"><%= link_to 'Edit', edit_article_comment_path(comment.article, comment) %></span>
-		<span class="btn btn-outline-dark"><%= link_to 'Delete', [comment.article, comment], method: :delete %></span>
+		<%= t('common.wrote') %> <%= comment.created_at %> 
+		<% if current_user == comment.user %>
+		<%= link_to t('common.edit'), edit_article_comment_path(comment.article, comment), class:"btn btn-outline-dark", style:"Text-decoration: none" %>
+		<%= link_to t('common.delete'), [comment.article, comment], method: :delete, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
 		<% end %>
 		<h5><p><%= comment.content %></p></h5></p>
 		<hr>

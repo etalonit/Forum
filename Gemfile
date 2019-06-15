@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+#our gems
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'devise'
@@ -43,7 +44,10 @@ gem 'carrierwave'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem "mini_magick"
 gem 'acts_as_votable', '~> 0.12.0'
-
+gem 'kaminari'
+gem 'ancestry'
+gem 'jquery-rails'
+gem 'friendly_id', '~> 5.2.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -9,20 +9,24 @@
         <h2 class="username"><%= @user.username %></h2>
         <% if user_signed_in? %>
         <a class="edit-profile" href="<%= edit_user_registration_path %>">
-          <button>Edit Profile</button>
+          <button><%= t('profile.edit') %></button>
         </a>
         <% end %>
       </div>
       <ul class="posts">
       	<h2 class="name"><%= @user.first_name %> <%= @user.last_name %></h2>
-      	<li><strong>About me:</strong> <%= @user.about %></li><br>
-        <li><strong>Email:</strong> <%= @user.email %></li><br>
-        <li><strong>Birthday:</strong> <%= @user.birthday %></li>
+      	<li><strong><%= t('profile.about_me') %>:</strong> <%= @user.about %></li><br>
+        <li><strong><%= t('profile.email') %>:</strong> <%= @user.email %></li><br>
+        <li><strong><%= t('profile.birthday') %>:</strong> <%= @user.birthday %></li>
       </ul>
-      <strong>User articles:</strong> <br>
+      <strong><%= t('profile.articles') %>:</strong> <br>
       <a class="website"><% @user_articles.each do |article| %>
-		<%=  link_to article.title, article_path(article)  %><br>
-		<% end %></a>
+        <hr>
+      <p><%= image_tag article.image(:thumb) if article.image? %></p>
+         <%=  link_to article.title, article_path(article)  %><br>
+         <h4><%= article.content %></h4>
+        <p><h6><%= t('common.created') %> <%= article.created_at %></h6></p>
+		  <% end %></a>
     </div>
   </div>
 </div>

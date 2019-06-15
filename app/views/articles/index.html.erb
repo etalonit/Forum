@@ -1,18 +1,32 @@
-<h1 class="text-center">Articles Board</h1>
+<h1 class="text-center"><%= t('.title') %></h1>
 <hr>
 <p id="notice"><%= notice %></p>
+  <%= form_tag articles_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+
+    <%= link_to "Advanced search", new_search_path %>
+    
+  <% end %>
 <% @articles.each do |article| %>
 <div class="Box">
     <p><h3><strong><%= link_to article.title, article %></h3></strong>
     <% if user_signed_in? && current_user == article.user %>
-    <%= link_to 'Edit', edit_article_path(article) %>
-    <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to t('common.edit'), edit_article_path(article) %>
+    <%= link_to t('common.delete'), article, method: :delete, data: { confirm: t('devise.are_you_sure') } %>
     <% end %>
-    <h6>Created <%= time_ago_in_words(article.created_at) %> ago</h6></p>
+    <h6><%= t('common.created') %> <%= article.created_at %></h6></p>
     <p><%= image_tag article.image(:thumb) if article.image? %></p>
     <div class= "conteiner"><h4><%= article.content %></h4></div>
-    <h6><strong>Author : </strong><%= article.user.email %></h6>
-    <%= article.get_upvotes.size %><%= image_tag("like.png", size: "30x30") %>
-    <%= article.get_downvotes.size %><%= image_tag("dislike.png", size: "30x30") %>
+    <h6><strong><%= t('common.author') %> : </strong><%= article.user.email %></h6>
+     <% if article.category.present? %>
+            <STRONG><%= t('common.category') %> : </STRONG><%= link_to article.category.name, article.category %>
+        <% end %>
+
+    <br><span class="badge badge-secondary">
+    <%= article.get_upvotes.size %></span>&nbsp;<%= image_tag("lik.png", size: "20x20") %>&nbsp;
+    <span class="badge badge-secondary">
+    <%= article.get_downvotes.size %></span>&nbsp;<%= image_tag("dis.png", size: "20x20") %>
 </div>
 <% end %>
+  <%= paginate @articles %>

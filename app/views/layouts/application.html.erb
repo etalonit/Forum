@@ -10,6 +10,9 @@
 
   <body>
     <%= render 'layouts/navbar' %>
+    <%= render 'shared/submenu' %>
     <%= yield %>
+    <%= link_to "Укр", { locale: :uk }, class: "nav-link" %>
+    <%= link_to "Eng", { locale: :en }, class: "nav-link" %>
   </body>
 </html>
