@@ -13,7 +13,7 @@
 	<ul class="nav nav-pills nav-stacked">
 		<% Category.roots.each do |category| %>
 	    <li class="nav-item">
-	    	<%= link_to category.name, category, class: "text-white nav-link #{'active' if current_page? (category_path(category)) || @article.present? && @article.category == category}", style:"Text-decoration: none" %>
+	    	<%= link_to category.name, category, class: "text-white nav-link #{'active' if current_page? (category_path(category)) || @article.present? && @article.category == category}", style:"Text-decoration: underline;" %>
 	    	<%= render 'shared/submenu_category', categories: category.root.descendants.arrange %>
 	    <% end %>
 	</li>
