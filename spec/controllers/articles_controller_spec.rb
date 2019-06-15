@@ -31,16 +31,22 @@ RSpec.describe ArticlesController, type: :controller do
 #   end
 
 
-describe 'PATCH #update' do
-    before do
-     @article = create(:article, user_id: subject.current_user.id)
+  context 'PUT #update' do
+  let!(:article) { create :article, user: user }
+
+  it 'should update article info' do
+   params = {
+    title: 'a',
+    content: 'c'
+   }
+
+   put :update, params: { id: article.id, article: params }
+   article.reload
+   params.keys.each do |key|
+    expect(article.attributes[key.to_s]).to eq params[key]
    end
-    it 'should update article and redirect to article' do
-      patch :update, params: { id: subject.current_user.id, article: { title: 'Lolka' } }
-    #  expect(subject.current_user.article.title).to eq('Lolka')
-      expect(response).to redirect_to @article
-    end
-end
+  end
+  end
 
 
 describe 'before actions' do
