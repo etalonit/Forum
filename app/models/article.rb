@@ -9,15 +9,15 @@ class Article < ApplicationRecord
 	has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
     validates_attachment_content_type :image , content_type: /\Aimage\/.*\z/
 
-    has_attached_file :audio
-    validates_attachment :audio, :content_type => { :content_type => ['audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]}
-    
+  #  has_attached_file :audio
+  #  validates_attachment :audio, :content_type => { :content_type => ['audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]}
+  # in tests will be boom :)
     paginates_per 3
     belongs_to :category
 
 
   def self.search(search)
-  if search  
+  if search
     where("title LIKE ?","%#{search}%")
   else
     all
