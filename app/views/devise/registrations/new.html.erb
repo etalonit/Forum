@@ -1,4 +1,4 @@
-<h1 class="text-center">Sign Up</h1>
+<h1 class="text-center"><%= t('devise.sign_up') %></h1>
 <hr>
 <div class="Box">
 <div class="col col-lg-2">
@@ -10,27 +10,27 @@
     <%= f.text_field :first_name, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div class="field" style="padding-top: 20px;">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div class="field" style="padding-top: 20px;">
     <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div class="field" style="padding-top: 20px;">
     <%= f.label :birthday %><br />
     <%= f.date_field :birthday, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div class="field" style="padding-top: 20px;">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+  <div class="field" style="padding-top: 20px;">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> <%= t('devise.characters_minimum') %>)</em>
@@ -38,16 +38,17 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="field" style="padding-top: 20px;">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
+  <div class="actions" style="padding-top: 10px;">
     <button type="submit" class="btn btn-outline-dark"><%= t('devise.sign_up') %></button>
   </div>
 <% end %>
-
+<div style="padding-top: 10px;">
 <%= render "devise/shared/links" %>
+</div>
 </div>
 </div>

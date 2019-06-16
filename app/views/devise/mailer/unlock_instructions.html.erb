@@ -1,9 +1,9 @@
-<h1 class="text-center">Hello <%= @resource.email %>!</h1>
+<h1 class="text-center"><%= t('devise.hello') %> <%= @resource.email %>!</h1>
 <hr>
 <div class="Box">
 <p><%= t('devise.your_account_has_been_locked') %></p>
 
 <p><%= t('devise.unlock_your_account') %></p>
 
-<p><%= link_to t('devise.unlock_my_account'), unlock_url(@resource, unlock_token: @token) %></p>
+<p><%= link_to t('devise.unlock_my_account'), unlock_url(@resource, unlock_token: @token), class:"btn btn-outline-dark", style:"Text-decoration: none" %></p>
 </div>

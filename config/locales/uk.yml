@@ -27,6 +27,7 @@ uk:
     title: "Назва"
     content: "Вміст"
   category:
+    categories: "Категорії"
     create: "Створити"
     new_category: "Створити категорію"
     edit_category: "Редагування категорії"
@@ -45,11 +46,12 @@ uk:
     log_out: "Вийти"
     sign_up: "Зареєструватися"
     update: "Обновити"
+    edit: "Редагувати"
     forgot_your_password: "Забули свій пароль?"
     receive_confirmation_intructions: "Не отримали інструкцій з підтвердження?"
     receive_unlock_intructions: "Не отримали інструкції з розблокування?"
     sign_in_with: "Увійти з"
-    cancel_my_account: "Скасувати мій обліковий запис"
+    cancel_my_account: "Видалити мій обліковий запис"
     are_you_sure: "Ви впевнені?"
     unhappy: "Незадоволені?"
     send_me_reset: "Надіслати мені інструкції щодо скидання пароля"
@@ -69,6 +71,14 @@ uk:
     unlock_your_account: "Натисніть наведене нижче посилання, щоб розблокувати обліковий запис:"
     unlock_my_account: "Розблокувати мій аккаунт"
     resend_confirmation_instructions: "Повторно надішліть інструкції підтвердження"
+    leave_blank: "залиште порожнім, якщо ви не хочете його змінювати"
+    currently_waiting: "В даний час чекає підтвердження для"
+    current_password_to_confirm: "для підтвердження змін нам потрібен ваш поточний пароль"
+    welcome: "Ласкаво просимо"
+    confirm_your_account_email: "Ви можете підтвердити електронну пошту свого облікового запису за посиланням нижче"
+    hello: "Привіт"
+    your_password_wont_change: "Ваш пароль не змінюватиметься, доки ви не перейдете за посиланням вище і не створите новий"
+
   articles:
     index:
       title: "Статті"

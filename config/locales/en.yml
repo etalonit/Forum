@@ -32,6 +32,16 @@
 en:
   hello: "Hello world"
   common:
+    enter_your_comment: "Enter your comment"
     comment: "comments"
   navbar:
     articles_search: "Articles search"
+  devise:
+    cancel_my_account: "Delete this account"
+    are_you_sure: "Are you sure?"
+    leave_blank: "leave blank if you do not want to change it"
+    currently_waiting: "Currently awaiting confirmation for"
+    current_password_to_confirm: "We need your current password to confirm the changes"
+    welcome: "Welcome"
+    hello: "Hello"
+    
