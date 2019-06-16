@@ -1,4 +1,9 @@
 uk:
+  pagination:
+    first: "Перша сторінка"
+    next: "Наступна"
+    last: "Остання"
+    previous: "Попередня"
   profile:
     edit: "Редагування профілю"
     about_me: "Про мене"
@@ -26,6 +31,7 @@ uk:
     no_record_found: "Нічого не знайдено"
     title: "Назва"
     content: "Вміст"
+    my_profile: "Профіль"
   category:
     categories: "Категорії"
     create: "Створити"
@@ -78,7 +84,6 @@ uk:
     confirm_your_account_email: "Ви можете підтвердити електронну пошту свого облікового запису за посиланням нижче"
     hello: "Привіт"
     your_password_wont_change: "Ваш пароль не змінюватиметься, доки ви не перейдете за посиланням вище і не створите новий"
-
   articles:
     index:
       title: "Статті"

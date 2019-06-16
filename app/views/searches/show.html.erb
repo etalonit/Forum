@@ -1,15 +1,18 @@
 <h1 class="text-center"><%= t('common.search_result') %></h1>
 <hr>
+<div class="Box">
 <% if @search.search_articles.empty? %>
 	<%= t('common.no_record_found') %>
 <% else %>
   <% @search.search_articles.each do |c| %>
   	<br>
   	<div>
-  		<h1><%= t('common.title') %> : <%= c.title %></h1>
+  		<h3><%= t('common.title') %> : <%= link_to c.title, c %></h3>
   		<p><%= t('common.content') %> : <%= c.content %></p>
+  		<hr>
     </div>
   <% end %>
 <% end %>
 <br>
 <%= link_to t('common.back'), new_search_path, class:"btn btn-outline-dark", style:"Text-decoration: none;" %>
+</div>
