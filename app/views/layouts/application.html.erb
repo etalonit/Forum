@@ -10,9 +10,14 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <%= render 'shared/submenu' %>
-    <%= yield %>
-    <%= link_to "Укр", { locale: :uk }, class: "nav-link" %>
-    <%= link_to "Eng", { locale: :en }, class: "nav-link" %>
+    <div class="row">
+      <div class="col-md-2">
+      <%= render 'shared/submenu' %>
+      </div>
+      <div class="col-md-10">
+        <%= yield %>
+      </div>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

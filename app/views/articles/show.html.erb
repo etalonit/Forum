@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 <div class="Box">
   <h4><%= link_to avatar_for(@article.user, size: 25), @article.user %>  <b><%= @article.user.username %></b></h4>
-  <p>Created: <%= time_ago_in_words(@article.created_at) %> ago <% if user_signed_in? && current_user == @article.user %>
+  <p><%= t('common.created') %> : <%= @article.created_at %> 
+    <% if user_signed_in? && current_user == @article.user %>
     <%= link_to t('common.edit'), edit_article_path(@article), class:"btn btn-outline-dark", style:"Text-decoration: none" %>
     <%= link_to t('common.delete'), @article, method: :delete, data: { confirm: t('devise.are_you_sure') }, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
         <% end %></p>

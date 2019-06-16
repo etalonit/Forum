@@ -26,6 +26,9 @@ uk:
         category:
           name: "Ім'я"
           parent_id: "Батьківський ідентифікатор"
+        search:
+          keywords: "Ключові слова"
+          content: "Вміст"
     errors:
       messages:
         blank: 'не може бути пустим полем'

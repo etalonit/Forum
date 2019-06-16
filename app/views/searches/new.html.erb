@@ -1,5 +1,5 @@
-<h1>Custom Search</h1>
-
+<h1 class="text-center"><%= t('common.advanced_search') %></h1>
+<hr>
 <%= form_for @search, html: {class: "pure-form"} do |s| %>
 
 	<div class="field">
@@ -12,11 +12,8 @@
 		<%= s.text_field :content %>
 	</div>
 
-
 	<div>
-		<%= s.submit "Search" %>
+		<button class="btn btn-outline-dark" type="submit"><%= t('navbar.search') %></button>
 	</div>
-
 <% end %>
-
-<p><%= link_to "Back", articles_path %></p>
+<%= link_to t('common.back'), articles_path, class:"btn btn-outline-dark", style:"Text-decoration: none;" %>

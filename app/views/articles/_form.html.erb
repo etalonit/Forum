@@ -1,3 +1,4 @@
+<div class="Box">
 <%= form_for @article do |f| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
@@ -12,12 +13,12 @@
 
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title, placeholder:"Enter title" %>
+    <%= f.text_field :title %>
   </div>
 
   <div class="field">
     <%= f.label :content %>
-    <%= f.text_area :content, placeholder:"Enter body" %>
+    <%= f.text_area :content %>
   </div>
 
   <div class="field">
@@ -40,3 +41,4 @@
   </div>
   <%= link_to t('common.back'), articles_path, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
 <% end %>
+</div>
