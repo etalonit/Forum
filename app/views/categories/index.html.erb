@@ -5,7 +5,7 @@
 		<thead>
 			<tr>
 				<th>№</th>
-				<th><%= t('category.name') %> </th>
+				<th><%= t('category.name') %></th>
 				<th><%= t('category.parent_category') %></th>
 			</tr>
 		</thead>
@@ -14,7 +14,7 @@
 			<tr>
 				<td><%= index + 1 %></td>
 				<td><%= category.name %></td>
-				<td><%= category.parent.name if category.parent.present? %></td>W
+				<td><%= category.parent.name if category.parent.present? %></td>
 			</tr>
 			<% end %>
 		</tbody>
