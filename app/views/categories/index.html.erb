@@ -1,7 +1,22 @@
-	<%= t('category.name') %> 
-	<%= t('category.parent_category') %>
-	<% @category.each_with_index do |category, index| %>
-		<%= index + 1 %>
-		<%= category.name %>
-		<%= category.parent.name if category.parent.present? %>
-	<% end %>
+<br>
+<section id="categories">
+	<br>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>№</th>
+				<th><%= t('category.name') %> </th>
+				<th><%= t('category.parent_category') %></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @category.each_with_index do |category, index| %>
+			<tr>
+				<td><%= index + 1 %></td>
+				<td><%= category.name %></td>
+				<td><%= category.parent.name if category.parent.present? %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</section>
