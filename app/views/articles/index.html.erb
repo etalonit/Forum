@@ -1,25 +1,37 @@
 <h1 class="text-center"><%= t('.title') %></h1>
 <hr>
+<a class="btn btn-outline-dark" data-toggle="collapse" data-parent="#accordion" href="#collapse">
+        Показати вміст статтей</a>
 <p id="notice"><%= notice %></p>
 <% @articles.each do |article| %>
 <div class="Box">
-    <p><h3><strong><%= link_to article.title, article %></h3></strong>
-    <% if user_signed_in? && current_user == article.user %>
-    <%= link_to t('common.edit'), edit_article_path(article) %>
-    <%= link_to t('common.delete'), article, method: :delete, data: { confirm: t('devise.are_you_sure') } %>
-    <% end %>
-    <h6><%= t('common.created') %> <%= article.created_at %></h6></p>
-    <p><%= image_tag article.image(:thumb) if article.image? %></p>
-    <div class= "conteiner"><h4><%= article.content %></h4></div>
-    <h6><strong><%= t('common.author') %> : </strong><%= article.user.email %></h6>
-     <% if article.category.present? %>
-            <STRONG><%= t('common.category') %> : </STRONG><%= link_to article.category.name, article.category %>
-        <% end %>
-
-    <br><span class="badge badge-secondary">
-    <%= article.get_upvotes.size %></span>&nbsp;<%= image_tag("lik.png", size: "20x20") %>&nbsp;
-    <span class="badge badge-secondary">
-    <%= article.get_downvotes.size %></span>&nbsp;<%= image_tag("dis.png", size: "20x20") %>
-</div>
-<% end %>
-  <%= paginate @articles %>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <p><h3><strong><%= link_to article.title, article %></h3></strong>
+                        <% if user_signed_in? && current_user == article.user %>
+                        <%= link_to t('common.edit'), edit_article_path(article) %>
+                        <%= link_to t('common.delete'), article, method: :delete, data: { confirm: t('devise.are_you_sure') } %>
+                        <% end %><br>
+                        <h6><%= t('common.created') %> <%= article.created_at %></h6></p>
+                    </h4>
+                </div>
+                <div id="collapse" class="panel-collapse collapse in" style="padding-top: 10px;">
+                    <div class="panel-body">
+                        <div class= "conteiner"><h4><%= article.content %></h4></div>
+                        <h6><strong><%= t('common.author') %> : </strong><%= article.user.email %></h6>
+                        <% if article.category.present? %>
+                        <STRONG><%= t('common.category') %> : </STRONG><%= link_to article.category.name, article.category %>
+                        <% end %>
+                        <br><span class="badge badge-secondary">
+                            <%= article.get_upvotes.size %></span>&nbsp;<%= image_tag("lik.png", size: "20x20") %>&nbsp;
+                            <span class="badge badge-secondary">
+                                <%= article.get_downvotes.size %></span>&nbsp;<%= image_tag("dis.png", size: "20x20") %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+<%= paginate @articles %>

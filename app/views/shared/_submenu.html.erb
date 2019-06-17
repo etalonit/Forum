@@ -10,7 +10,6 @@
 <div class="submenu">
 	<h5 class="font-weight-bold text-white text-center" style="margin-top: 5px;"><%= t('navbar.categories') %></h5>
 	<hr>
-	<ul class="nav nav-pills nav-stacked">
 		<% Category.roots.each do |category| %>
 	    <ul class="sidebar-menu">
 	    	<li class="treeview active">
@@ -20,8 +19,7 @@
 	</ul>
 </li>
 </ul>
-	    <% end %>
-	</li>
-	</ul>
+<% end %>
+</li>
 </div>
 </div>
