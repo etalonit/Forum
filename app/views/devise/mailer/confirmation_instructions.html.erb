@@ -1,7 +1,7 @@
-<h1 class="text-center">Welcome <%= @email %>!</h1>
+<h1 class="text-center"><%= t('devise.welcome') %> <%= @email %>!</h1>
 <hr>
 <div class="Box">
-<p>You can confirm your account email through the link below:</p>
+<p><%= t('devie.confirm_your_account_email') %>:</p>
 
-<p><%= link_to t('devise.confirm_my_account'), confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to t('devise.confirm_my_account'), confirmation_url(@resource, confirmation_token: @token), class:"btn btn-outline-dark", style:"Text-decoration: none" %></p>
 </div>

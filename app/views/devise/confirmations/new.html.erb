@@ -9,10 +9,11 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </div>
 
-  <div class="actions">
+  <div class="actions" style="padding-top: 10px;">
   	<button type="submit" class="btn btn-outline-dark"><%= t('devise.resend_confirmation_instructions') %></button>
   </div>
 <% end %>
-
+<div style="padding-top: 10px;">
 <%= render "devise/shared/links" %>
+</div>
 </div>

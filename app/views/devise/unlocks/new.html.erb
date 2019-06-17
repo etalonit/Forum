@@ -1,4 +1,4 @@
-<h1 class="text-center">Resend unlock instructions</h1>
+<h1 class="text-center"><%= t('devise.resend_unlock_instructions') %></h1>
 <hr>
 <div class="Box">
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
@@ -9,10 +9,11 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="actions">
+  <div class="actions" style="padding-top: 10px;">
   	<button type="submit" class="btn btn-outline-dark"><%= t('devise.resend_unlock_instructions') %></button>
   </div>
 <% end %>
-
+<div style="padding-top: 10px;">
 <%= render "devise/shared/links" %>
+</div>
 </div>

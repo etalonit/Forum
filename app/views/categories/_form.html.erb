@@ -1,4 +1,5 @@
-<%= form_for @category do |f| %>
+<div class="Box">
+	<%= form_for @category do |f| %>
  <div class="form-group">
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %>
@@ -12,4 +13,6 @@
  <div class="form-group">
  	<button type="submit" class="btn btn-outline-dark"><%= t('category.create') %></button>
  </div> 
+ <%= link_to t('common.back'), categories_path, class:"btn btn-outline-dark", style:"Text-decoration: none;" %>
 <% end %>
+</div>

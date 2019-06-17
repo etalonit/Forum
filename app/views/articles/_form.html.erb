@@ -36,7 +36,7 @@
     <%= f.collection_select :category_id, Category.order(:name), :id, :name, { include_blank: true} %>
   </div>
 
-  <div class="actions">
+  <div class="actions" style="padding-top: 10px;">
     <button type="submit" class="btn btn-outline-dark"><%= t('.submit', action: @article.new_record? ? 'Создати' : 'Змінити') %></button>
   </div>
   <%= link_to t('common.back'), articles_path, class:"btn btn-outline-dark", style:"Text-decoration: none" %>

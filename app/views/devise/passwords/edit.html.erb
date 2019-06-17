@@ -1,4 +1,4 @@
-<h1 class="text-center">Change your password</h1>
+<h1 class="text-center"><%= t('devise.change_my_password') %></h1>
 <hr>
 <div class="Box">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
@@ -13,15 +13,16 @@
     <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="field" style="padding-top: 20px;">
     <%= f.label :password_confirmation, t('devise.confirm_new_password') %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
+  <div class="actions" style="padding-top: 10px;">
     <button type="submit" class="btn btn-outline-dark"><%= t('devise.change_my_password') %></button>
   </div>
 <% end %>
-
+<div style="padding-top: 10px;">
 <%= render "devise/shared/links" %>
+</div>
 </div>
