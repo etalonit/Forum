@@ -1,8 +1,4 @@
 <br>
-<% if user_signed_in? %>
-<%= link_to t('common.new_category'), new_category_path, class:"btn btn-outline-dark", style:"Text-decoration: none;" %>
-<% end %>
-
 <section id="categories">
 	<br>
 	<table class="table">
@@ -19,11 +15,7 @@
 			<tr>
 				<td><%= index + 1 %></td>
 				<td><%= category.name %></td>
-				<td><%= category.parent.name if category.parent.present? %></td>
-				<td>
-					<%= link_to t('common.edit'), edit_category_path(category), class:"btn btn-outline-dark", style:"Text-decoration: none" %>
-					<%= link_to t('common.delete'), category_path(category), method: :delete, data: { confirm: t('devise.are_you_sure') }, class:"btn btn-outline-dark", style:"Text-decoration: none" %>
-				</td>
+				<td><%= category.parent.name if category.parent.present? %></td>W
 			</tr>
 			<% end %>
 		</tbody>

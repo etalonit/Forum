@@ -15,9 +15,6 @@
   	<% else %>
   	<%= link_to t('devise.log_in'), user_session_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
   	<% end %>
-    <% if  user_signed_in? && current_user.try(:admin?)  %>
-  <%= link_to t('navbar.categories'), categories_path, class:"btn btn-outline-light", style:"Text-decoration: none" %>
-   <% end %>
 </div>
 <div class="col-sm-4 d-flex flex-row-reverse">
   	<form class="form-inline my-2 my-lg-0">

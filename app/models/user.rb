@@ -15,5 +15,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true 
    
   extend FriendlyId
-  friendly_id :username, use: :slugged      
+  friendly_id :username, use: :slugged
+        
 end
